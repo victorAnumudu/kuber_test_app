@@ -1,8 +1,21 @@
+import React, { useEffect } from 'react'
+import axios from 'axios'
 import './App.css'
 
-import React from 'react'
 
 export default function App() {
+
+  useEffect(() => {
+    axios.get('http://localhost:10000/')
+      .then((response) => {
+        console.log(response.data)
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error)
+      })
+  }, [])
+
+
   return (
     <>
       <div className="cursor-glow" aria-hidden="true" />
